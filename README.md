@@ -15,5 +15,13 @@ GitHub：https://github.com/pytorch/pytorch
 * [1.PyTorch概述](notes/introduce.md)  
 * [2.安装PyTorch](notes/install.md)  
 * [3.Pytorch基础介绍](notes/base.md)  
-  
+    * Tensor
+    * Autograd
+    * nn（神经网络）
+    * 损失函数
+    * 优化器 
+    * 数据加载与预处理
+    * 在GPU上训练 
+    * 
+
 
