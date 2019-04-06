@@ -35,7 +35,7 @@ PyTorch是所有的框架中面向对象设计的最优雅的—
 PyTorch提供了完整的文档，循序渐进的指
 南，作者亲自维护的论坛。  
 ### 3.ONNX  
-Faceboo啦微软宣布，推出Open Neural Network
+Facebook,微软宣布，推出Open Neural Network
 Exchange (ONNX, 开放神经网络交换)格式，这是一个用千表示深
 度学习模型的标准，可使模型在不同框架之间进行转移。 ONNX是迈向开放生态系统的第—步， ONNX目 前支持 PyTorch、 Caffe2和 CNTK,未来会支持更多的框架。除了 Facebook和微软，ARM、 IBM、华为和英特尔、高通也宣布支持ONNX。  
 

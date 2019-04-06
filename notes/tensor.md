@@ -56,3 +56,45 @@ a.new??
 ```
 ### 5.逐个元素操作
 这部分操作会对tensor的每一个元素 (point-wise, 又名 element-wise) 进行操作，此类操作的输入与输出形状—致。  
+![](../imgs/06.png)  
+对千很多操作，例如 div、 mul, pow、 fmod等， PyTorch都 实现了运算符玺载，所以可以直接使用运算符。例如， a\*\*2等价千 torch.pow (a, 2) , a\*2等价千torch.mul (a, 2).  
+### 6. 归并操作  
+此类操作会使输出形状小于输入形状 ，并可以沿着某—维度进行指定操作。如加 法sum, 既可以计算整个tensor的和，也可以计算tensor中每—行或每—列的和。  
+![](../imgs/07.png)  
+### 7.比较  
+比较函数中有—些是逐元素比较，操作类似千逐元素操作，还 有一些则类似于归并操作。  
+![](../imgs/08.png)  
+也实现了运算符重载  
+### 8.线性代数  
+比较函数中有—些是逐元素比较，操作类似于逐元素操作，还 有一些则类似于归并操作。  
+![](../imgs/09.png)   
+## 二、Tensor和Numpy  
+Tensor和 Numpy数组之间具有很高的相似性，彼此之间的互操作也非尝简单离效。需要注意的是， Numpy和Tensor共享内存。由于Numpy历史悠久，支持丰富的操作，所以 当遇到 Tensor不支持的操作时，可先转成 Numpy数组，处理后再转回 tensor, 其转换开销很小。   
+`b = t.from_numpy(a)`  
+`a = t.Tensor(b)`    
+### 1.广播  
+虽然，Pytorch已默认支持广播，但是建议，通过以下两个函数的组合手动实现广播法则，这样更直观，更不易出错。   
+*  unsqueeze或者view: 为数据某—维的形状补1，实现法则 1。  
+*  expand或者expand as, 重复数组，实现法则 3; 该操作不 会复制数组，所以不会占用额外的空间。  
+  
+注意 repeat实现与expand相类似的功能，但是repeat会把相同数据要制多份，因此会占用额外的空间。  
+## 三、内部结构  
+tensor的数据结构如图所示。tensor分为头信息区(Tensor) 和存储区 (Storage) , 信息区主要保存着 tensor的形状 (size) 、步长 (stride) 、数据类型 (type) 等信息，而真正的数据则保存成连续数组。由千数据动辄成干上万，因此信息元素占用内存较少，主要内存占用取决千tensor中元素的数 目 ，即存储区的大小。  
+![](../imgs/10.png)  
+## 四、持久化  
+Tensor的保存和加载十分简单，使用 t.save和 t.load即可完成 相应的功能。在save/load时可指定使用的 pickle模块，在 load时还可 将GPU tensor映射到CPU或其他GPU上。  
+```python
+if t.cuda.is_availiable():
+    a = a.cuda(1) #把a转换为GPU1上的tensor
+    t.save(a, 'a.path')
+
+# 加载为b时，存储于GPU1上（因为保存在GPU1上）  
+b = a.load('a.path')
+# 加载为c，存储于CPU
+c = t.lood('a.pth' , map_location=lambda storoge, loc: storoge)
+# 加载为d，存储于GPU0上
+b = a.load('a.path'， map_location={'cuda:1':'cuda:0'})
+```
+## 五、向量化  
+向量化计算是—种特殊的并行计算方式，一般程序在同—时间 只执行一个操作的方式，它可在同—时间执行多个操作，通常是对不同的数据执行同样的一个或一批指令，或者说把指令应用于一个数组/向量上。向量化可极大地提高科学运算的效率， Python本身是—门高级语言，使用很方便，但许多操作很低效，尤其是for循环。在科学计算程序 中应当极力避免使用 Python原生的for循环，尽量使用向量化的数值计 算。   
+
