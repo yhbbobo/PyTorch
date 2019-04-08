@@ -21,5 +21,6 @@ GitHub：https://github.com/pytorch/pytorch
     * [数据加载与预处理](notes/dataload.md)
     * 在GPU上训练 
     * 
-
+## 三、杂记  
+* [1.2019-04-08笔记](notes/notes01.md)
 
