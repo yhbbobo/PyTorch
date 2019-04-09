@@ -12,9 +12,13 @@ tensorflow2.0=>动态优先
 ![](../imgs/14.png)  
 * API 
 ![](../imgs/15.png)  
+## BatchNorm
+![](../imgs/21.png)  
 
-# 学习笔记 - 2
+
 卷积   
 ![](../imgs/16.png)  
 ![](../imgs/17.png)  
 ![](../imgs/18.png)  
+![](../imgs/19.png)  
+## 经典神经网络  

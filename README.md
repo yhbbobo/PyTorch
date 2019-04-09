@@ -22,5 +22,6 @@ GitHub：https://github.com/pytorch/pytorch
     * 在GPU上训练 
     * 
 ## 三、杂记  
+* [深度学习与PyTorch1.0教程](notes/bilibili-1.md)
 * [1.2019-04-08笔记](notes/notes01.md)
 
