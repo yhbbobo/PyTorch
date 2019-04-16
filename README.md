@@ -8,9 +8,11 @@ pytorch版本：1.0.0
 * examples -->代码
 ## 一、资源  
 官网：https://pytorch.org/   
-GitHub：https://github.com/pytorch/pytorch  
-中文Tutorial：https://pytorch-cn.readthedocs.io/zh/latest/  
-参考1: 
+GitHub：https://github.com/pytorch/pytorch     
+API：https://github.com/zergtant/pytorch-handbook   
+API：https://pytorch.apachecn.org/#/   
+API：https://github.com/apachecn/pytorch-doc-zh  
+API：https://pytorch-cn.readthedocs.io/zh/latest/#pytorch
 ## 二、学习笔记  
 ### 1.[《深度学习框架PyTorch：入门与实践》](https://github.com/chenyuntc/pytorch-book) 笔记  
 * [1.PyTorch概述](notes/introduce.md)  
