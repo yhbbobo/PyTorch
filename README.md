@@ -11,7 +11,7 @@ tnt:https://github.com/pytorch/tnt
 ### API
 API：https://github.com/zergtant/pytorch-handbook   
 API：https://pytorch.apachecn.org/#/   
-API：https://github.com/apachecn/pytorch-doc-zh  
+**API**：https://github.com/apachecn/pytorch-doc-zh  
 API：https://pytorch-cn.readthedocs.io/zh/latest/#pytorch 
 ## 二、官方Tutorial学习笔记   
 [备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html)   
