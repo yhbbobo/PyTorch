@@ -1,17 +1,17 @@
 # pytorch1.0.0学习笔记  
 2019-04-18   
 ## 一、资源
-官网：https://pytorch.org/   
+官网：https://pytorch.org/     
 GitHub：https://github.com/pytorch/pytorch   
 examples:https://github.com/pytorch/examples   
-tutorials:https://github.com/pytorch/tutorials  
+tutorials:https://github.com/pytorch/tutorials    
+中文Tutorial：https://github.com/apachecn/pytorch-doc-zh    
 tnt:https://github.com/pytorch/tnt  
 
    
-### API
+   
 API：https://github.com/zergtant/pytorch-handbook   
-API：https://pytorch.apachecn.org/#/   
-**API**：https://github.com/apachecn/pytorch-doc-zh  
+API：https://pytorch.apachecn.org/#/     
 API：https://pytorch-cn.readthedocs.io/zh/latest/#pytorch 
 ## 二、官方Tutorial学习笔记   
 [备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html)   
