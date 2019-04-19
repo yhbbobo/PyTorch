@@ -16,4 +16,4 @@ mytensor = my_tensor.to(device)
 ```
 model = nn.DataParallel(model)
 ```
-### [详细参考](../examples/dataparallel.ipynb)
+### [详细参考](https://github.com/fusimeng/pytorchexamples/blob/master/dataparallel.ipynb)

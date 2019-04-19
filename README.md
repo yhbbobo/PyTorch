@@ -17,5 +17,5 @@ API：https://pytorch-cn.readthedocs.io/zh/latest/#pytorch
     * [训练分类器](notes/training_classifier.md)
     * [Data Parallelism](notes/dataparallelism.md)
 * [数据加载和处理教程](notes/load_pre.md)
-* [迁移学习](examples/transferlearning.ipynb)
+* [迁移学习](https://github.com/fusimeng/pytorchexamples/blob/master/transferlearning.ipynb)
 * [单机多卡和多机多卡分布式](notes/multigpus.md)

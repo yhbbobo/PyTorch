@@ -4,4 +4,4 @@
 * scikit-image：对于图像io和变换
 * pandas：更容易进行csv解析
   
-### [详细教程](../examples/load_pre.ipynb)
+### [详细教程](https://github.com/fusimeng/pytorchexamples/blob/master/load_pre.ipynb)

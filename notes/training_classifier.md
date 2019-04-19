@@ -17,4 +17,4 @@
 * 4.在训练数据上训练网络
 * 5.在测试数据上测试网络
    
-## [详细内容](../examples/classifier.ipynb)   
+## [详细内容](https://github.com/fusimeng/pytorchexamples/blob/master/classifier.ipynb)   
