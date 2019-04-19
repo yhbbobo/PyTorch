@@ -19,3 +19,6 @@ API：https://pytorch-cn.readthedocs.io/zh/latest/#pytorch
 * [数据加载和处理教程](notes/load_pre.md)
 * [迁移学习](https://github.com/fusimeng/pytorchexamples/blob/master/transferlearning.ipynb)
 * [单机多卡和多机多卡分布式](notes/multigpus.md)
+* [分布式训练原理](notes/distributed.md)
+    * [参考1](https://pytorch.org/docs/master/distributed.html)  
+    * [参考2](https://github.com/pytorch/tutorials/blob/master/intermediate_source/dist_tuto.rst)  
