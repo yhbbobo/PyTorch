@@ -1,22 +1,61 @@
-# Autograd  
-torch.autograd是为方便用户使用，专门开发的—套自动求导引擎， 它能够根据输入和前向传播过程自动构建计算图，并执行反向传播。
-## 一、Variable  
-PyTorch在 autograd模块中实现了计算图的相关功能，autograd中的核心数据结构是Variable。Variable封装了Tensor，并记录对tensor的操作记录用来构建计算图。 Variable的数据结构如图所示，主要包含三个属性：  
-* data: 保存variable所包含的tensor。  
-* grad : 保存data对应的梯度， grad也是variable, 而不是 tensor, 它与data形状—致。
-* grad fn : 指向一个Function, 记录tensor的操作历史，即 它是什么操作的输出，用来构建计算图。如果某一个变最是由用户创建 的，则它为叶子节点，对应的 grad_fn等于None。  
-  
-![](../imgs/11.png)  
-Variable的构造函数需要传入 tensor, 同时有两个可选参数。  
-• requires grad (bool) 是否需要对该variable进行求导。  
-• volatile (bool) 意为 "挥发”， 设置为True, 构建在该 variable之上的图都不会求导，专为推理阶段设计。  
-Variable支持大部分tensor支持的函数， 但其不支持部分inplace函数， 因为这些函数会修改tensor自身，而在反向传播中， variable需要缓存原来的tensor来计算梯度。如果想要计算各个Variable的梯度，只需调用根节点 variable的backward方法， autograd会自动沿巷计算图反向传播，计算每一个叶子节点的梯度。  
-`variable.backward (grad variables=None, retain graph=None, create gra ph=None)` 主要有如下参数。  
-* grad_variables: 形状与variable一致，对于y.backward() , grad_variables相当千链式法则![](../imgs/12.png)  
-grad_variables也可以是tensor或序列。  
-* retain_graph : 反向传播需要缓存—些中间结果，反向传播 之后，这些缓存就被清空，可通过指定这个参数不清空缓存，用来多次 反向传播。
-* create_graph 对反向传播过程再次构建计算图，可通过 backward of backward实现求高阶导数。  
-  
-## 二、计算图  
-PyTorch使用的是动态图，它的计算图在每次前向传播时都是 从头开始构建的，所以它能够使用 Python控制语句(如for、 if等)，根据需求创建计算图。这—点在自然语言处理领域中很有用， 它意味着你 不需要事先构建所有可能用到的图的路径，图在运行时才构建。  
+# 自动微分
+autograd包中是PyTorch中**所有神经网络的核心**。我们先了解下，然后去训练我们的第一个神经网络。
 
+该autograd包为Tensors上的**所有操作**提供自动微分。它是一个逐个运行的框架，这意味着您的backprop由您的代码运行方式定义，并且每个迭代都可以不同。  
+## TREE
+* 1.Tensor的梯度相关知识
+* 2.Gradients
+  
+## 一.Tensor
+`torch.Tensor`是包的核心类。如果将其属性`.requires_grad`设置为`True`，则会开始跟踪其上的所有操作。完成计算后，您可以调用`.backward()`并自动计算所有梯度。该张量的梯度将累积到`.grad`属性中。  
+
+要阻止张量跟踪历史记录，您可以调用`.detach()`它将其从计算历史记录中分离出来，并防止将来的计算被跟踪。  
+   
+要防止跟踪历史记录（和使用Memory），您还可以将代码块放入` with torch.no_grad():`。这在评估模型时尤其有用，因为模型可能具有可训练的参数`requires_grad=True` ，但我们不需要梯度。  
+
+还有一个类,对于autograd非常重要的实现——`Function`。  
+
+`Tensor`和`Function`互相联系，并构建一个非循环图，它编码完整的计算图。每个张量都有一个`.grad_fn`属性，该属性引用`Function`已创建的属性`Tensor`（除了用户创建的张量 ——grad_fn is None）。  
+
+如果你想计算导数，你可以调用`.backward()` on a Tensor。如果Tensor是标量（即它包含一个元素数据），则不需要指定任何参数`backward()`，但是如果它有更多元素，则需要指定一个`gradient `匹配形状的张量的参数。   
+  
+```
+import torch
+
+
+#创建一个张量并设置requires_grad=True,为了跟踪计算  
+x = torch.ones(2, 2, requires_grad=True)
+print(x)
+
+#做一个张量操作
+y = x + 2
+print(y)
+
+
+#y是作为一个操作的结果创建的，所以它有一个grad_fn
+print(y.grad_fn)
+
+z = y * y * 3
+out = z.mean()
+
+print(z, out)
+
+#.requires_grad_( ... )如果没有给出，输入标志默认为False。
+a = torch.randn(2, 2)
+a = ((a * 3) / (a - 1))
+print(a.requires_grad)
+a.requires_grad_(True)
+print(a.requires_grad)
+b = (a * a).sum()
+print(b.grad_fn)
+```
+
+## 二、Gradients
+Let’s backprop now. Because out contains a single scalar, `out.backward()` is equivalent to ` out.backward(torch.tensor(1.))`.  
+```
+out.backward()
+
+#Print gradients d(out)/dx
+print(x.grad)
+
+```
