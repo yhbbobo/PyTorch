@@ -5,7 +5,7 @@
 GitHub：https://github.com/pytorch/pytorch   
 examples:https://github.com/pytorch/examples   
 tutorials:https://github.com/pytorch/tutorials    
-中文Tutorial：https://github.com/apachecn/pytorch-doc-zh    
+中文Tutorial：https://github.com/apachecn/pytorch-doc-zh | https://github.com/fusimeng/pytorch-doc-zh       
 tnt:https://github.com/pytorch/tnt  
 
    
