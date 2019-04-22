@@ -16,7 +16,7 @@ def run(rank, size):
     """ Distributed function to be implemented later. """
     pass
 
-def init_processes(rank, size, fn, backend='tcp'):
+def init_processes(rank, size, fn, backend='gloo'):
     """ Initialize the distributed environment. """
     os.environ['MASTER_ADDR'] = '127.0.0.1'
     os.environ['MASTER_PORT'] = '29500'
