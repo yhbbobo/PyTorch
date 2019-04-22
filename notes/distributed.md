@@ -1,4 +1,4 @@
-# [使用PyTorch编写分布式应用程序](https://github.com/pytorch/tutorials/blob/master/intermediate_source/dist_tuto.rst)   
+# [使用PyTorch编写分布式应用程序](https://github.com/pytorch/tutorials/blob/master/intermediate_source/dist_tuto.rst) | [或者](https://pytorch.org/tutorials/intermediate/dist_tuto.html)    
 在这个简短的教程中，我们将讨论PyTorch的分布式软件包。我们将看到如何设置分布式设置，使用不同的通信策略，并查看包的内部部分。   
 ## 一、Setup  
 PyTorch中包含的分布式软件包（即`torch.distributed`）使研究人员和从业人员能够轻松地跨进程和计算机集群并行化计算。为此，它利用消息传递语义，允许每个进程将数据传递给任何其他进程。与`multiprocessing（torch.multiprocessing）`包相反，进程可以使用不同的通信后端，并且不限于在同一台机器上执行。
