@@ -27,7 +27,7 @@ API：https://pytorch-cn.readthedocs.io/zh/latest/#pytorch
 ### 4.分布式
 * [单机多卡和多机多卡分布式](notes/multigpus.md)
     * [单机多卡实现](https://github.com/fusimeng/pytorchexamples/blob/master/single_multigpus.ipynb)
-    * [多机多卡实现]()
+    * [多机多卡实现](https://github.com/fusimeng/pytorchexamples/blob/master/DistributedDataParallel.ipynb)
 * [分布式训练原理](notes/distributed.md)  
     * [学习代码](https://github.com/fusimeng/pytorchexamples/blob/master/dist_tutorial.ipynb)
     * [官方ImageNet](https://github.com/pytorch/examples/tree/master/imagenet)  
