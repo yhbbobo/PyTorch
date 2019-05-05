@@ -27,13 +27,17 @@ API：https://pytorch-cn.readthedocs.io/zh/latest/#pytorch
     * [模型保存与加载](notes/load_save_model.md)
     * [torch.nn](https://github.com/fusimeng/pytorchexamples/blob/master/nn_tutorial.ipynb)
 
-### 2.分布式
+### 2.数据并行分布式
 * [单机多卡和多机多卡分布式](notes/multigpus.md)
     * [单机多卡实现](https://github.com/fusimeng/pytorchexamples/blob/master/single_multigpus.ipynb)
     * [多机多卡实现](https://github.com/fusimeng/pytorchexamples/blob/master/DistributedDataParallel.ipynb)
 * [分布式训练原理](notes/distributed.md)  
     * [学习代码](https://github.com/fusimeng/pytorchexamples/blob/master/dist_tutorial.ipynb)
     * [官方ImageNet](https://github.com/pytorch/examples/tree/master/imagenet)  
+### 3.模型并行分布式
+* []
+### 4.数据并行&模型并行 同时使用
+
 ### 6.一些函数介绍
 
 * [ImageFolder使用](https://blog.csdn.net/TH_NUM/article/details/80877435)   
