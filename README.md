@@ -1,5 +1,7 @@
 # pytorch1.0.0学习笔记  
 2019-04-18   
+[Examples](https://github.com/fusimeng/pytorchexamples)   
+[BenchMark](https://github.com/fusimeng/framework_benchmark)   
 ## 一、资源
 官网：https://pytorch.org/     
 GitHub：https://github.com/pytorch/pytorch   
