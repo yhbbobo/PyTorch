@@ -2,9 +2,7 @@
 2019-04-18     
   
 ## 一、资源
-[官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)         
-[apachecn1](https://github.com/apachecn/pytorch-doc-zh) | [apachecn2](https://github.com/fusimeng/pytorch-doc-zh)       
-[tnt](https://github.com/pytorch/tnt)  
+[官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  
 
    
 ## 二、官方Tutorial学习笔记   
