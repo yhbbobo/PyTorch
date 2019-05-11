@@ -1,7 +1,6 @@
 # pytorch1.0.0学习笔记  
-2019-04-18   
-[Examples](https://github.com/fusimeng/pytorchexamples)   
-[BenchMark](https://github.com/fusimeng/framework_benchmark)   
+2019-04-18     
+  
 ## 一、资源
 [官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)         
 [apachecn1](https://github.com/apachecn/pytorch-doc-zh) | [apachecn2](https://github.com/fusimeng/pytorch-doc-zh)       
@@ -16,22 +15,25 @@
     * [自动微分](notes/autograd.md)
     * [神经网络](notes/nn.md)
     * [训练分类器](notes/training_classifier.md)
-    * [Data Parallelism](notes/dataparallelism.md)
+    * [Data Parallelism](notes/dataparallelism.md) 
     * [数据加载和处理教程](notes/load_pre.md)
-    * [迁移学习](https://github.com/fusimeng/pytorchexamples/blob/master/transferlearning.ipynb)  
+    * [迁移学习](code/transferlearning.ipynb)  
     * [模型保存与加载](notes/load_save_model.md)
-    * [torch.nn](https://github.com/fusimeng/pytorchexamples/blob/master/nn_tutorial.ipynb)
+    * [torch.nn](code/nn_tutorial.ipynb)
 
-### 2.数据并行分布式
-* [单机多卡和多机多卡分布式](notes/multigpus.md)
-    * [单机多卡实现](https://github.com/fusimeng/pytorchexamples/blob/master/single_multigpus.ipynb)
-    * [多机多卡实现](https://github.com/fusimeng/pytorchexamples/blob/master/DistributedDataParallel.ipynb)
-* [分布式训练原理](notes/distributed.md)  
-    * [学习代码](https://github.com/fusimeng/pytorchexamples/blob/master/dist_tutorial.ipynb)
-    * [官方ImageNet](https://github.com/pytorch/examples/tree/master/imagenet)  
-### 3.模型并行分布式
-* []
-### 4.数据并行&模型并行 同时使用
+### 2.分布式
+#### (1)数据并行
+* [Pytorch单机多卡和多机多卡分布式](notes/multigpus.md)
 
-### 6.一些函数介绍
+#### (2).模型并行分布式
+* [官方demo](https://pytorch.org/tutorials/intermediate/model_parallel_tutorial.html)
+#### (3).数据并行&模型并行 同时使用
+* [官方Demo](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)
+### 3.API学习
+* [分布式训练原理](notes/distributed.md) 
+## 三、一些函数介绍
 * [ImageFolder使用](https://blog.csdn.net/TH_NUM/article/details/80877435)   
+   
+**---------------------------------------------------------**   
+# 参考
+[1] [BenchMark](https://github.com/fusimeng/framework_benchmark) 

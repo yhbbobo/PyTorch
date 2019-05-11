@@ -15,5 +15,8 @@ mytensor = my_tensor.to(device)
 在多个GPU上执行前向，后向传播是很自然的。但是，Pytorch默认只使用一个GPU。通过使用`DataParallel`以下方式并行运行模型，您可以轻松地在多个GPU上运行操作 ：  
 ```
 model = nn.DataParallel(model)
-```
-### [详细参考](https://github.com/fusimeng/pytorchexamples/blob/master/dataparallel.ipynb)
+```   
+
+### [参考-1](../code/dataparallel.ipynb)
+### [参考-2](../code/dataparallel2.ipynb)
+### [参考-3](../code/single_multigpus.ipynb)
