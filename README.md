@@ -1,18 +1,11 @@
 # pytorch1.0.0学习笔记  
 2019-04-18   
 ## 一、资源
-官网：https://pytorch.org/     
-GitHub：https://github.com/pytorch/pytorch   
-examples:https://github.com/pytorch/examples   
-tutorials:https://github.com/pytorch/tutorials    
-中文Tutorial：https://github.com/apachecn/pytorch-doc-zh | https://github.com/fusimeng/pytorch-doc-zh       
-tnt:https://github.com/pytorch/tnt  
+[官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)         
+[apachecn1](https://github.com/apachecn/pytorch-doc-zh) | [apachecn2](https://github.com/fusimeng/pytorch-doc-zh)       
+[tnt](https://github.com/pytorch/tnt)  
 
    
-   
-API：https://github.com/zergtant/pytorch-handbook   
-API：https://pytorch.apachecn.org/#/     
-API：https://pytorch-cn.readthedocs.io/zh/latest/#pytorch 
 ## 二、官方Tutorial学习笔记   
 [备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html)   
 ### 1.Getting Started  
@@ -39,5 +32,4 @@ API：https://pytorch-cn.readthedocs.io/zh/latest/#pytorch
 ### 4.数据并行&模型并行 同时使用
 
 ### 6.一些函数介绍
-
 * [ImageFolder使用](https://blog.csdn.net/TH_NUM/article/details/80877435)   
