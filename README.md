@@ -12,12 +12,16 @@
     * [什么是pytorch？](notes/pytorch.md)
     * [自动微分](notes/autograd.md)
     * [神经网络](notes/nn.md)
+    * ------------------------------------------------------  
     * [训练分类器](notes/training_classifier.md)
+    * [torch.nn](code/nn_tutorial.ipynb)
+    * ------------------------------------------------------
     * [Data Parallelism](notes/dataparallelism.md) 
+    * ------------------------------------------------------
     * [数据加载和处理教程](notes/load_pre.md)
     * [迁移学习](code/transferlearning.ipynb)  
     * [模型保存与加载](notes/load_save_model.md)
-    * [torch.nn](code/nn_tutorial.ipynb)
+
 
 ### 2.分布式
 #### (1)数据并行

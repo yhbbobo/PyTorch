@@ -17,6 +17,4 @@ mytensor = my_tensor.to(device)
 model = nn.DataParallel(model)
 ```   
 
-### [参考-1](../code/dataparallel.ipynb)
-### [参考-2](../code/dataparallel2.ipynb)
-### [参考-3](../code/single_multigpus.ipynb)
+### [参考](../code/single_multigpus.ipynb)
