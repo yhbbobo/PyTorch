@@ -1,5 +1,5 @@
 # pytorch1.0.0学习笔记  
-![](../imgs/dl.png)
+![](imgs/dl.png)
 
 ## 一、资源
 [官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  
