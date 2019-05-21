@@ -2,10 +2,24 @@
 autograd包中是PyTorch中**所有神经网络的核心**。我们先了解下，然后去训练我们的第一个神经网络。
 
 该autograd包为Tensors上的**所有操作**提供自动微分。它是一个逐个运行的框架，这意味着您的backprop由您的代码运行方式定义，并且每个迭代都可以不同。  
+![](../imgs/grad01.png)   
+autograd的核心数据结构是Variable。Variable封装了tensor，并记录对
+tensor的操作记录来构建计算图。   
+* data：保存Variable所包含的tensor。 
+* grad：保存data对应的梯度，grad也是variable，而不是tensor，他与data形状一致。
+* grad_fn： 指向一个Function，记录tensor的操作历史，即他是什么操作的输出，用来构建
+计算图。
+
+Variable的构造函数需要传入tensor，同时有两个可选参数。    
+* require_grad(bool):是否需要对改variable进行求导。  
+* volatile（bool）:意为“挥发”，设置为“TRUE”，构建在该variable之上的图都不会求导，专为推理阶段设计。   
+
 ## TREE
 * 1.Tensor的梯度相关知识
 * 2.Gradients
   
+grad在反向传播过程中是累加的（accumulated），这意味着每次运行反向传播，梯度
+都会累加之前的梯度，所以反向传播之前需要把梯度清零。   
 ## 一.Tensor
 `torch.Tensor`是包的核心类。如果将其属性`.requires_grad`设置为`True`，则会开始跟踪其上的所有操作。完成计算后，您可以调用`.backward()`并自动计算所有梯度。该张量的梯度将累积到`.grad`属性中。  
 

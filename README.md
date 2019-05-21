@@ -29,8 +29,16 @@
 * [官方Demo](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)
 ### 3.API学习
 * [分布式训练原理](notes/distributed.md) 
-## 三、一些函数介绍
+## 三、总结笔记
+### 1. 数据预处理
 * [ImageFolder使用](https://blog.csdn.net/TH_NUM/article/details/80877435)   
+### 2. 定义模型 
+
+### 3. 训练模型
+
+### 4. 部署/推理
+
+  
    
 **---------------------------------------------------------**   
 # 参考

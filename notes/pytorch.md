@@ -3,6 +3,13 @@
 * NumPy的替代品，可以使用GPU的强大功能
 * 深入学习研究平台，提供最大的灵活性和速度
    
+## Pytorch的优点：  
+* 简介：   
+Pytorch中没有像TensorFlow中有session、graph、operation、name_scope、variable、tensor、layer等概念，
+Pytorch的设计遵循tensor->variable(autograd)->nn.Module三个由低到高的冲向层次。
+* 速度
+* 活跃的社区  
+
 ## TREE
 * 一、Tensor
 * 二、操作
@@ -71,7 +78,40 @@ x = torch.randn(1)
 print(x)
 print(x.item())
 ```
+### 1.基础操作
+从接口角度讲，对tensor的操作可分为两类：   
+* （1）torch.function,如torch.save等。   
+* （2）tensor.function，如tensor.view等。   
 
+从存储的角度讲，对tensor的操作可以分为两类：   
+* （1）不会修改自身的数据，如a.add(b),加法的结果返回一个新的tensor。   
+* （2）会修改自身的数据，如a.add(b),加法的结果仍然存储在a中，a被修改了。   
+   
+#### 创建
+![](../imgs/tensor01.png)
+#### 常用tensor操作
+```
+tensor.view()
+tensor.squeeze()
+tensor.unsqueeze()
+tensor.resize()
+```
+#### 索引操作
+![](../imgs/tensor02.png)
+#### tensor类型
+![](../imgs/tensor03.png)
+各数据类型之间可以相互转换，type（new type）是通用的做法，同时还有float、long、
+half等快捷方法。CPU Tensor和GPU Tensor之间的相互转换通过tensor.cuda和tensor.cpu的方法实现。
+#### tensor逐个元素操作
+![](../imgs/tensor04.png)
+#### 归并操作
+![](../imgs/tensor05.png)
+#### 比较
+![](../imgs/tensor06.png)   
+#### 线性代数
+![](../imgs/tensor07.png)   
+
+    
 ## 三、Numpy<-->Tensor
 
 将Torch Tensor转换为NumPy阵列（反之亦然）是一件轻而易举的事。  
@@ -101,6 +141,7 @@ np.add(a, 1, out=a)
 print(a)
 print(b)
 ```
+
 ## 四、CUDA Tensor
 可以使用该`.to`方法将张量移动到任何设备上。  
 ```
