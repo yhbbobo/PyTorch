@@ -31,7 +31,9 @@
 * [分布式训练原理](notes/distributed.md) 
 ## 三、总结笔记
 ### 1. 数据预处理
-* [ImageFolder使用](https://blog.csdn.net/TH_NUM/article/details/80877435)   
+* [ImageFolder使用](notes/imagefolder.md)   
+* [DataSet使用](code/dataSet.py)
+* [DataLoader使用](code/dataLoader.py)
 ### 2. 定义模型 
 
 ### 3. 训练模型
