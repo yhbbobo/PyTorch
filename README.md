@@ -41,7 +41,7 @@
 ### 2. 定义模型 
 
 ### 3. 训练模型
-[模型加载/参数初始化/Finetune](notes/lif.md)
+* [模型加载/参数初始化/Finetune](notes/lif.md)
 ### 4. 部署/推理
 
   
