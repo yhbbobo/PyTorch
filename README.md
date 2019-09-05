@@ -33,6 +33,8 @@
 * [官方Demo](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)
 ### 3.API学习
 * [分布式训练原理](notes/distributed.md) 
+### 4.Pytorch & CUDA & C
+* [自定义 C++ 与 CUDA 拓展](notes/cuda.md)
 ## 三、总结笔记
 ### 1. 数据预处理
 * [ImageFolder使用](notes/imagefolder.md)   
