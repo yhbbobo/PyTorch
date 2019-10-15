@@ -2,8 +2,14 @@
 ![](imgs/dl.png)
 
 ## 一、资源
-[官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  
+[官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  | [d2l](https://github.com/ShusenTang/Dive-into-DL-PyTorch)   
+### 1、网络模型
 
+### 2、损失函数
+
+### 3、BP
+
+### 4、优化器
    
 ## 二、官方Tutorial学习笔记   
 [备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html)   
@@ -35,7 +41,9 @@
 * [分布式训练原理](notes/distributed.md) 
 ### 4.Pytorch & CUDA & C
 * [自定义 C++ 与 CUDA 拓展](notes/cuda.md)
-## 三、总结笔记
+## 三、官方API学习
+* [torch.distributed](notes/torch-distributed.md)
+## 四、总结笔记
 ### 1. 数据预处理
 * [ImageFolder使用](notes/imagefolder.md)   
 * [DataSet使用](code/dataSet.py)
