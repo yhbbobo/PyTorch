@@ -1,6 +1,5 @@
 # torch.utils.data功能理解   
 [源码链接](https://github.com/pytorch/pytorch/tree/master/torch/utils/data)   
-
 torch.utils.data.DataLoader类是PyTorch数据加载实用程序的核心。它是个可在数据集上迭代的Python迭代器，并支持   
 * map-style and iterable-style datasets,
 * customizing data loading order,
@@ -17,11 +16,9 @@ DataLoader(dataset, batch_size=1, shuffle=False, sampler=None,
 ```
 以下各节详细介绍了这些选项的效果和用法。
 ## 一、数据集类型
-
 DataLoader 构造函数最重要的参数是dataset，它指示要从中加载数据的数据集对象。PyTorch支持两种不同类型的数据集：     
 * map-style datasets,
 * iterable-style datasets.  
-
 ### 1、map-style datasets
 torch.utils.data.Dataset    
 
@@ -37,7 +34,9 @@ torch.utils.data.Dataset代表的抽象类Dataset，代表从键到数据样本�
 例如，这样的数据集调用iter(dataset)，可以返回从数据库，远程服务器甚至实时生成的日志中读取的数据流。
 For example, such a dataset, when called iter(dataset), could return a stream of data reading from a database, a remote server, or even logs generated in real time.
 
+iterable-style dataset 是IterableDataset 的子类， 实现了__iter__和 __add__协议 ，表示数据样本上的可迭代对象。这种类型的dataset特别适用于以下情况：随机读取代价高且批处理大小取决于所获取的数据。IterableDataset 见详细细节
 
+将 IterableDataset用于多进程数据加载（multi-process data loading）时，在每个工作进程上都复制相同的数据集对象，因此必须对副本进行不同的配置，以避免重复的数据，有关如何实现此目的，请参见 IterableDataset文档。
 
 # torch.utils.data包理解
 ## 一、 Dataset
