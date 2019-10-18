@@ -7,9 +7,12 @@
 * [数据加载和处理教程](notes/data/load_pre.md)
 * [torch.utils.data](notes/data/torch_utils_data.md)
 * [torchvision.datasets](notes/data/torch_torchvision.md)
+* [ImageFolder使用](notes/imagefolder.md)   
+* [DataSet使用](code/dataSet.py)
+* [DataLoader使用](code/dataLoader.py)
 
 ### 1、网络模型
-
+* [模型加载/参数初始化/Finetune](notes/lif.md)
 ### 2、损失函数
 
 ### 3、BP
@@ -48,16 +51,7 @@
 * [自定义 C++ 与 CUDA 拓展](notes/cuda.md)
 ## 三、官方API学习
 * [torch.distributed](notes/torch-distributed.md)
-## 四、总结笔记
-### 1. 数据预处理
-* [ImageFolder使用](notes/imagefolder.md)   
-* [DataSet使用](code/dataSet.py)
-* [DataLoader使用](code/dataLoader.py)
-### 2. 定义模型 
 
-### 3. 训练模型
-* [模型加载/参数初始化/Finetune](notes/lif.md)
-### 4. 部署/推理
 
   
    
