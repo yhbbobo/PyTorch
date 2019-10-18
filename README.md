@@ -1,8 +1,13 @@
 # pytorch1.0.0学习笔记  
 ![](imgs/dl.png)
-
 ## 一、资源
-[官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  | [d2l](https://github.com/ShusenTang/Dive-into-DL-PyTorch)   
+[官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  | [d2l](https://github.com/ShusenTang/Dive-into-DL-PyTorch) 
+## 二、[基础&学习笔记](notes/pytorch-api.md)
+### 0、数据处理
+* [数据加载和处理教程](notes/data/load_pre.md)
+* [torch.utils.data](notes/data/torch_utils_data.md)
+* [torchvision.datasets](notes/data/torch_torchvision.md)
+
 ### 1、网络模型
 
 ### 2、损失函数
@@ -11,7 +16,7 @@
 
 ### 4、优化器
    
-## 二、官方Tutorial学习笔记   
+## 三、官方Tutorial学习笔记   
 [备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html)   
 ### 1.Getting Started  
 * 60分钟闪电战
@@ -58,4 +63,5 @@
    
 **---------------------------------------------------------**   
 # 参考
-[1] [BenchMark](https://github.com/fusimeng/framework_benchmark) 
+[1] [BenchMark](https://github.com/fusimeng/framework_benchmark)    
+[2]  https://blog.csdn.net/rogerfang/article/details/82291464   
