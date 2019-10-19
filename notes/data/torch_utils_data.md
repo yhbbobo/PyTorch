@@ -37,7 +37,111 @@ For example, such a dataset, when called iter(dataset), could return a stream of
 iterable-style dataset 是IterableDataset 的子类， 实现了__iter__和 __add__协议 ，表示数据样本上的可迭代对象。这种类型的dataset特别适用于以下情况：随机读取代价高且批处理大小取决于所获取的数据。IterableDataset 见详细细节
 
 将 IterableDataset用于多进程数据加载（multi-process data loading）时，在每个工作进程上都复制相同的数据集对象，因此必须对副本进行不同的配置，以避免重复的数据，有关如何实现此目的，请参见 IterableDataset文档。
+## 二、Data Loading Order and Sampler
+对于 iterable-style datasets，数据加载顺序完全由用户定义的可迭代样式控制，这样可以更轻松地实现块读取和动态批次大小的实现（例如，通过每次生成一个批次的样本）。本节的其余部分涉及 map-style datasets 的情况。
 
+torch.utils.data.Sampler类用于指定数据加载中使用的索引/键的顺序。它们代表数据集索引上的可迭代对象。例如，在SGD常见情况下，Sampler可以随机排列一列索引，一次生成每个索引，或者为小批量SGD生成少量索引。
+
+基于 DataLoader 的 shuffle 参数，将自动构造顺序或随机排序的采样器。或者，用户可以使用 sampler 参数指定一个自定义Sampler对象，该对象每次都会产生要提取的下一个索引/键。
+
+可以一次生成批量索引列表的自定义采样器作为batch_sampler参数传递。也可以通过batch_size和drop_last参数启用自动批处理。
+
+iterable-style datasets 不能和 sample/ batch_dample 一起使用， 因为iterable-style datasets 没有 index 和 key的概念
+
+## 三、Loading Batched and Non-Batched Data
+DataLoader 支持通过参数 batch_size，drop_last 和 batch_sampler 自动将各个提取的数据样本整理为批次
+
+### 1、Automatic batching (default)
+
+这是最常见的情况，对应于获取一小批数据并将其整理为批处理样本，即包含一个张量的张量，其中一维为批处理尺寸（通常是第一维）。
+
+当 batch_size（默认值1）不为None时，数据加载器将生成批处理的样本，而不是单个样本。 batch_size 和 drop_last 参数用于指定数据加载器如何获取数据集keys的批处理。对于map-style datasets，用户可以选择指定batch_sampler，一次生成一个键列表.
+
+batch_size和drop_last参数本质上用于从sampler构造一个 batch_sampler。对于map-style datasets，sampler 可以由用户提供，也可以根据随机参数构造。对于 iterable-style datasets，sampler 是一个 dummy infinite one ，这是什么？
+
+从 iterable-style datasets with multi-processing 中获取数据时，drop_last参数会删除每个worker的数据集副本的最后一个非完整批次。
+
+使用来自采样器的索引获取样本列表后，作为 collat​​e_fn 参数传递的函数用于将样本列表整理为批次。自定义 collat​​e_fn 可用于自定义排序规则，例如将连续数据填充到批处理的最大长度。
+
+### 2、Disable automatic batching
+
+在某些情况下，用户可能希望手动处理批处理，或仅加载单个样本。例如，直接加载批处理的数据（例如，从数据库中批量读取或读取连续的内存块）可能更容易，或者批处理大小取决于数据，或者该程序设计为可处理单个样本。在这种情况下，最好不要使用自动批处理（其中使用collat​​e_fn来整理样本），而应让数据加载器直接返回数据集对象的每个成员。
+
+当 batch_size和batch_sampler均为“None”（batch_sampler的默认值已为“None”）时，将禁用自动批处理。从数据集中获得的每个样本都将作为 collat​​e_fn 参数传递的函数进行处理。禁用自动批处理后，默认的 collat​​e_fn 会将NumPy数组简单地转换为PyTorch张量，并使其他所有内容保持不变。
+
+### 3、Working with collate_fn
+禁用自动批处理后，将对每个单独的数据样本调用 collat​​e_fn，并从数据加载迭代器产生输出。在这种情况下，默认的collat​​e_fn会简单地转换PyTorch张量中的NumPy数组。
+
+启用自动批处理后，每次都会使用数据样本列表调用 collat​​e_fn。期望将输入样本整理为一批，以便从数据加载器迭代器中输出。
+
+例如，如果每个数据样本都包含一个3通道图像和一个完整的类标签，即数据集的每个元素都返回一个元组（image，class_index），默认的collat​​e_fn将这样的元组列表整理为批处理图像张量和批处理类标签Tensor的单个元组。特别是，默认的collat​​e_fn具有以下属性：1 它始终为批次维度添加新的维度；2 它会自动将NumPy数组和Python数值转换为PyTorch张量；3 它保留了数据结构，例如，如果每个样本都是一个字典，它将输出一个具有相同键集但将批处理张量作为值的词典（或者如果值不能转换为张量则列出）。
+
+用户可以使用定制的 collat​​e_fn 来实现定制批处理，例如，沿着除第一个维度之外的其他尺寸进行校对，各种长度的填充序列或添加对定制数据类型的支持。
+## 四、Single- and Multi-process Data Loading
+默认情况下，DataLoader使用单进程数据加载。在Python进程中，全局解释器锁（GIL）防止跨线程真正地完全并行化Python代码。为了避免在加载数据时阻塞计算代码，PyTorch提供了一个简单的开关，只需将参数 num_workers 设置为正整数即可执行多进程数据加载
+
+### 1、Single-process data loading (default)
+
+在此模式下，数据获取是在初始化DataLoader的同一进程中完成的。因此，数据加载可能会阻止计算。然而，当用于在进程之间共享数据的资源（例如，共享存储器，文件描述符）有限时，或者当整个数据集很小并且可以完全加载到存储器中时，该模式可能是优选的。此外，单进程加载通常显示更多可读的错误跟踪，因此对于调试很有用。
+
+### 2、Multi-process data loading
+
+将参数num_workers设置为正整数将打开具有指定数量的加载程序工作进程的多进程数据加载。在这种模式下，每次创建DataLoader的迭代器时（例如，当您调用enumerate（dataloader）时），都会创建 num_workers个工作进程。此时，数据集collate_fn 和 worker_init_fn 被传递给每个工作程序，在这里它们被用来初始化和获取数据。这意味着数据集访问及其内部IO转换（包括collat​​e_fn）在工作进程中运行。
+
+torch.utils.data.get_worker_info() 在工作进程中返回各种有用的信息（包括工作ID，数据集副本，初始种子等），并在主进程中返回None。用户可以在数据集代码或worker_init_fn 中使用此函数来分别配置每个数据集副本，并确定代码是否在工作进程中运行。例如，这在sharding the dataset时特别有用。
+
+对于map-style datasets，主要过程使用采样器生成索引并将其发送给工作人员。因此，任何随机播放都是在主过程中完成的，该过程通过为索引分配索引来引导加载。
+
+对于iterable-style datasets，由于每个工作进程都获得了数据集对象的副本，因此幼稚的多进程加载通常会导致数据重复。使用torch.utils.data.get_worker_info（）或worker_init_fn，用户可以独立配置每个副本。 出于类似的原因，在多进程加载中，drop_last 参数删除每个工作程序的可迭代样式数据集副本的最后一个非完整批次。
+
+一旦迭代结束或迭代器被垃圾回收，Workers 将关闭。
+
+warning:通常不建议在多进程加载中返回CUDA张量，因为在使用CUDA和在多处理中共享CUDA张量时存在许多细微之处（请参阅 CUDA in multiprocessing）。相反，我们建议使用自动内存固定（即设置 pin_memory = True），这样可以将数据快速传输到支持CUDA的GPU。
+
+由于工作程序依赖于Python多处理，因此与Unix相比，Windows上的工作程序启动行为有所不同：
+
+* 在Unix上，fork（）是默认的多处理启动方法。使用fork（），子工作人员通常可以直接通过克隆的地址空间访问数据集和Python参数函数。
+
+* 在Windows上，spawn（）是默认的多处理启动方法。使用spawn（），将启动另一个解释器，该解释器运行您的主脚本，然后运行内部工作程序函数，该函数通过pickle序列化接收数据集，collat​​e_fn和其他参数。
+
+这种独立的序列化意味着应该采取两个步骤来确保在使用多进程数据加载时与Windows兼容：
+* 1、用__name__ =='__main__'：将大部分主脚本代码包装起来，以确保启动每个辅助进程时它不会再次运行（很可能会产生错误）。
+* 2、确保在__main__检查之外将任何自定义collat​​e_fn，worker_init_fn或数据集代码声明为顶级定义。这样可以确保它们在工作进程中可用。（这是必需的，因为将函数仅作为引用而不是字节码进行腌制。）
+
+多进程数据加载中的随机性：默认情况下，每个工作程序的 PyTorch种子将设置为base_seed + worker_id，其中base_seed是主进程使用其RNG生成的长整数（因此，强制使用RNG状态）。但是，初始化工作程序（例如NumPy）时，可能会复制其他库的种子，导致每个工作程序返回相同的随机数。在 worker_init_fn 中，您可以使用torch.utils.data.get_worker_info（）。seed或torch.initial_seed（）访问每个工作人员的PyTorch种子集，并在加载数据之前使用它为其他库添加种子。
+## 五、Memory Pinning
+主机到GPU副本源自固定（页面锁定）内存时，速度要快得多。有关一般何时以及如何使用固定内存的更多详细信息，请参见使用固定内存缓冲区
+
+对于数据加载，将pin_memory = True传递给DataLoader将自动将获取的数据张量放入固定内存中，从而能够更快地将数据传输到支持CUDA的GPU。
+
+默认的内存固定逻辑仅识别张量以及包含张量的映射和可迭代对象。默认情况下，如果固定逻辑看到一个属于自定义类型的批处理（如果您具有返回自定义批处理类型的collat​​e_fn就会发生），或者如果该批处理的每个元素都是自定义类型，则固定逻辑将无法识别它们，它将返回该批处理（或那些元素）而无需固定内存。要为自定义批处理或数据类型启用内存固定，请在您的自定义类型上定义pin_memory（）方法：
+```python
+class SimpleCustomBatch:
+    def __init__(self, data):
+        transposed_data = list(zip(*data))
+        self.inp = torch.stack(transposed_data[0], 0)
+        self.tgt = torch.stack(transposed_data[1], 0)
+
+    # custom memory pinning method on custom type
+    def pin_memory(self):
+        self.inp = self.inp.pin_memory()
+        self.tgt = self.tgt.pin_memory()
+        return self
+
+def collate_wrapper(batch):
+    return SimpleCustomBatch(batch)
+
+inps = torch.arange(10 * 5, dtype=torch.float32).view(10, 5)
+tgts = torch.arange(10 * 5, dtype=torch.float32).view(10, 5)
+dataset = TensorDataset(inps, tgts)
+
+loader = DataLoader(dataset, batch_size=2, collate_fn=collate_wrapper,
+                    pin_memory=True)
+
+for batch_ndx, sample in enumerate(loader):
+    print(sample.inp.is_pinned())
+    print(sample.tgt.is_pinned())
+```
 # torch.utils.data包理解
 ## 一、 Dataset
 dataset.py   
@@ -285,3 +389,5 @@ https://github.com/LianHaiMiao/pytorch-lesson-zh/
 
 # Reference
 [1] https://likewind.top/2019/02/01/Pytorch-dataprocess/   
+[2] https://zhuanlan.zhihu.com/p/85385325   
+
