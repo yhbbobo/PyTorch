@@ -45,7 +45,36 @@
 * [自定义 C++ 与 CUDA 拓展](notes/cuda.md)
   
 ## 三、源码学习
+[torch包的目录结构](notes/api/torch_arch.md)
 * [torch](notes/api/torch.md)
+* [torch.nn](notes/api/torch_nn.md)
+* [torch.nn.functional](notes/api/torch_nn_funtional.md)
+* [torch.Tensor](notes/api/torch_tensor.md)
+* [torch.Attributes](notes/api/torch_attributes.md)
+* [torch.autograd](notes/api/torch_autograd.md)
+* [torch.cuda](notes/api/torch_cuda.md)
+torch.distributed
+torch.distributions
+torch.hub
+torch.jit
+torch.nn.init
+torch.onnx
+torch.optim
+Quantization
+torch.random
+torch.sparse
+torch.Storage
+torch.utils.bottleneck
+torch.utils.checkpoint
+torch.utils.cpp_extension
+torch.utils.data
+torch.utils.dlpack
+torch.utils.model_zoo
+torch.utils.tensorboard
+Type Info
+Named Tensors
+Named Tensors operator coverage
+torch.__config__
 
 # 参考
 [1] [BenchMark](https://github.com/fusimeng/framework_benchmark)    
