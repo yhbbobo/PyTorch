@@ -1,4 +1,5 @@
 # Loss functions
+[source](https://pytorch.org/docs/stable/nn.html#loss-functions)   
 * loss functions
     * L1Loss
     * MSELoss
@@ -33,7 +34,40 @@
     * reduce(bool)- 返回值是否为标量，默认为True
     * size_average(bool)- 当reduce=True时有效。为True时，返回的loss为平均值；为False时，返回的各样本的loss之和。
 * 实例：
-[🔗](https://github.com/fusimeng/PyTorch_Tutorial/blob/master/Code/3_optimizer/3_1_lossFunction/1_L1Loss.py)
+```python
+import torch
+import torch.nn as nn
+
+# ----------------------------------- L1 Loss
+
+# 生成网络输出 以及 目标输出
+output = torch.ones(2, 2, requires_grad=True)*0.5
+target = torch.ones(2, 2)
+
+# 设置三种不同参数的L1Loss
+l1_1 = nn.L1Loss(reduction='none')
+l1_sum = nn.L1Loss(reduction='sum')
+l1_mean = nn.L1Loss(reduction='mean')
+
+o_0 = l1_1(output, target)
+o_1 = l1_sum(output, target)
+o_2 = l1_mean(output, target)
+
+print('\nreduce=none, 输出同维度的loss:\n{}\n'.format(o_0))
+print('reduce=sum，\t求和:\t{}'.format(o_1))
+print('reduce=mean，\t求平均:\t{}'.format(o_2))
+```
+```
+output:
+root@ff:~# python l1.py 
+
+reduce=none, 输出同维度的loss:
+tensor([[0.5000, 0.5000],
+        [0.5000, 0.5000]], grad_fn=<L1LossBackward>)
+
+reduce=sum，	求和:	2.0
+reduce=mean，	求平均:	0.5
+```
 
 ## 二、MSELoss
 `class torch.nn.MSELoss(size_average=None, reduce=None, reduction='mean')`     
@@ -44,9 +78,44 @@
 * 参数：   
     * reduce(bool)- 返回值是否为标量，默认为True
     * size_average(bool)- 当reduce=True时有效。为True时，返回的loss为平均值；为False时，返回的各样本的loss之和。
-* 实例：   
-[link](https://github.com/TingsongYu/PyTorch_Tutorial/blob/master/Code/3_optimizer/3_1_lossFunction/2_MSELoss.py)   
+* 实例：    
+```python
+# coding: utf-8
 
+import torch
+import torch.nn as nn
+
+# ----------------------------------- MSE loss
+
+# 生成网络输出 以及 目标输出
+output = torch.ones(2, 2, requires_grad=True) * 0.5
+target = torch.ones(2, 2)
+
+# 设置三种不同参数的L1Loss
+reduce_False = nn.MSELoss(reduction='none')
+size_average_True = nn.MSELoss(reduction='sum')
+size_average_False = nn.MSELoss(reduction='mean')
+
+
+o_0 = reduce_False(output, target)
+o_1 = size_average_True(output, target)
+o_2 = size_average_False(output, target)
+
+print('\nnone, 输出同维度的loss:\n{}\n'.format(o_0))
+print('sum，\t求和:\t{}'.format(o_1))
+print('mean，\t求平均:\t{}'.format(o_2))
+```
+```
+output:
+root@ff:~# python mse.py 
+
+none, 输出同维度的loss:
+tensor([[0.2500, 0.2500],
+        [0.2500, 0.2500]], grad_fn=<MseLossBackward>)
+
+sum，	求和:	1.0
+mean，	求平均:	0.25
+```
 ## 三、CrossEntropyLoss
 [极大似然估计](mle.md)   
 [交叉熵损失函数](crossentropy.md)   
@@ -68,7 +137,90 @@
     * reduce(bool)- 返回值是否为标量，默认为True
     * ignore_index(int)- 忽略某一类别，不计算其loss，其loss会为0，并且，在采用size_average时，不会计算那一类的loss，除的时候的分母也不会统计那一类的样本。
 * 实例：   
-[link](https://github.com/TingsongYu/PyTorch_Tutorial/blob/master/Code/3_optimizer/3_1_lossFunction/3_CrossEntropyLoss.py)   
+```python
+# coding: utf-8
+
+import torch
+import torch.nn as nn
+import numpy as np
+import math
+
+# ----------------------------------- CrossEntropy loss: base
+
+loss_f = nn.CrossEntropyLoss(weight=None, reduction='none')
+# 生成网络输出 以及 目标输出
+output = torch.ones(2, 3, requires_grad=True) * 0.5      # 假设一个三分类任务，batchsize=2，假设每个神经元输出都为0.5
+target = torch.from_numpy(np.array([0, 1])).type(torch.LongTensor)
+
+loss = loss_f(output, target)
+
+print('--------------------------------------------------- CrossEntropy loss: base')
+print('loss: ', loss)
+print('由于reduction=none，所以可以看到每一个样本的loss，输出为[1.0986, 1.0986]')
+
+
+# 熟悉计算公式，手动计算第一个样本
+output = output[0].detach().numpy()
+output_1 = output[0]              # 第一个样本的输出值
+target_1 = target[0].numpy()
+
+# 第一项
+x_class = output[target_1]
+# 第二项
+exp = math.e
+sigma_exp_x = pow(exp, output[0]) + pow(exp, output[1]) + pow(exp, output[2])
+log_sigma_exp_x = math.log(sigma_exp_x)
+# 两项相加
+loss_1 = -x_class + log_sigma_exp_x
+print('---------------------------------------------------  手动计算')
+print('第一个样本的loss：', loss_1)
+
+
+# ----------------------------------- CrossEntropy loss: weight
+
+weight = torch.from_numpy(np.array([0.6, 0.2, 0.2])).float()
+loss_f = nn.CrossEntropyLoss(weight=weight, reduction='none')
+output = torch.ones(2, 3, requires_grad=True) * 0.5  # 假设一个三分类任务，batchsize为2个，假设每个神经元输出都为0.5
+target = torch.from_numpy(np.array([0, 1])).type(torch.LongTensor)
+loss = loss_f(output, target)
+print('\n\n--------------------------------------------------- CrossEntropy loss: weight')
+print('loss: ', loss)  #
+print('原始loss值为1.0986, 第一个样本是第0类，weight=0.6,所以输出为1.0986*0.6 =', 1.0986*0.6)
+
+# ----------------------------------- CrossEntropy loss: ignore_index
+
+loss_f_1 = nn.CrossEntropyLoss(weight=None, reduction='none', ignore_index=1)
+loss_f_2 = nn.CrossEntropyLoss(weight=None, reduction='none', ignore_index=2)
+
+output = torch.ones(3, 3, requires_grad=True) * 0.5  # 假设一个三分类任务，batchsize为2个，假设每个神经元输出都为0.5
+target = torch.from_numpy(np.array([0, 1, 2])).type(torch.LongTensor)
+
+loss_1 = loss_f_1(output, target)
+loss_2 = loss_f_2(output, target)
+
+print('\n\n--------------------------------------------------- CrossEntropy loss: ignore_index')
+print('ignore_index = 1: ', loss_1)     # 类别为1的样本的loss为0
+print('ignore_index = 2: ', loss_2)     # 类别为2的样本的loss为0
+```
+```
+output:
+root@ff:~# python crossentropyloss.py 
+--------------------------------------------------- CrossEntropy loss: base
+loss:  tensor([1.0986, 1.0986], grad_fn=<NllLossBackward>)
+由于reduction=none，所以可以看到每一个样本的loss，输出为[1.0986, 1.0986]
+---------------------------------------------------  手动计算
+第一个样本的loss： 1.0986122886681098
+
+
+--------------------------------------------------- CrossEntropy loss: weight
+loss:  tensor([0.6592, 0.2197], grad_fn=<NllLossBackward>)
+原始loss值为1.0986, 第一个样本是第0类，weight=0.6,所以输出为1.0986*0.6 = 0.65916
+
+
+--------------------------------------------------- CrossEntropy loss: ignore_index
+ignore_index = 1:  tensor([1.0986, 0.0000, 1.0986], grad_fn=<NllLossBackward>)
+ignore_index = 2:  tensor([1.0986, 1.0986, 0.0000], grad_fn=<NllLossBackward>)
+```
 * 补充：   
 output不仅可以是向量，还可以是图片，即对图像进行像素点的分类，这个例子可以从NLLLoss()中看到，这在图像分割当中很有用。
 

@@ -115,24 +115,6 @@ torch.nn
     * CosineSimilarity
     * PairwiseDistance
 * [Loss functions](loss.md)
-    * L1Loss
-    * MSELoss
-    * CrossEntropyLoss
-    * CTCLoss
-    * NLLLoss
-    * PoissonNLLLoss
-    * KLDivLoss
-    * BCELoss
-    * BCEWithLogitsLoss
-    * MarginRankingLoss
-    * HingeEmbeddingLoss
-    * MultiLabelMarginLoss
-    * SmoothL1Loss
-    * SoftMarginLoss
-    * MultiLabelSoftMarginLoss
-    * CosineEmbeddingLoss
-    * MultiMarginLoss
-    * TripletMarginLoss
 * Vision layers
     * PixelShuffle
     * Upsample
