@@ -114,7 +114,7 @@ torch.nn
 * Distance functions
     * CosineSimilarity
     * PairwiseDistance
-* Loss functions
+* [Loss functions](loss.md)
     * L1Loss
     * MSELoss
     * CrossEntropyLoss
@@ -418,42 +418,7 @@ CLASStorch.nn.CosineSimilarity(dim=1, eps=1e-08)
 ### 2、PairwiseDistance
 CLASStorch.nn.PairwiseDistance(p=2.0, eps=1e-06, keepdim=False)
 ## 十五、Loss functions
-### 1、L1Loss
-CLASStorch.nn.L1Loss(size_average=None, reduce=None, reduction='mean')
-### 2、MSELoss
-CLASStorch.nn.MSELoss(size_average=None, reduce=None, reduction='mean')
-### 3、CrossEntropyLoss
-CLASStorch.nn.CrossEntropyLoss(weight=None, size_average=None, ignore_index=-100, reduce=None, reduction='mean')
-### 4、CTCLoss
-CLASStorch.nn.CTCLoss(blank=0, reduction='mean', zero_infinity=False)
-### 5、NLLLoss
-CLASStorch.nn.NLLLoss(weight=None, size_average=None, ignore_index=-100, reduce=None, reduction='mean')
-### 6、PoissonNLLLoss
-CLASStorch.nn.PoissonNLLLoss(log_input=True, full=False, size_average=None, eps=1e-08, reduce=None, reduction='mean')
-### 7、KLDivLoss
-CLASStorch.nn.KLDivLoss(size_average=None, reduce=None, reduction='mean')
-### 8、BCELoss
-CLASStorch.nn.BCELoss(weight=None, size_average=None, reduce=None, reduction='mean')
-### 9、BCEWithLogitsLoss
-CLASStorch.nn.BCEWithLogitsLoss(weight=None, size_average=None, reduce=None, reduction='mean', pos_weight=None)
-### 10、MarginRankingLoss
-CLASStorch.nn.MarginRankingLoss(margin=0.0, size_average=None, reduce=None, reduction='mean')
-### 11、HingeEmbeddingLoss
-CLASStorch.nn.HingeEmbeddingLoss(margin=1.0, size_average=None, reduce=None, reduction='mean')
-### 12、MultiLabelMarginLoss
-CLASStorch.nn.MultiLabelMarginLoss(size_average=None, reduce=None, reduction='mean')
-### 13、SmoothL1Loss
-CLASStorch.nn.SmoothL1Loss(size_average=None, reduce=None, reduction='mean')
-### 14、SoftMarginLoss
-CLASStorch.nn.SoftMarginLoss(size_average=None, reduce=None, reduction='mean')
-### 15、MultiLabelSoftMarginLoss
-CLASStorch.nn.MultiLabelSoftMarginLoss(weight=None, size_average=None, reduce=None, reduction='mean')
-### 16、CosineEmbeddingLoss
-CLASStorch.nn.CosineEmbeddingLoss(margin=0.0, size_average=None, reduce=None, reduction='mean')
-### 17、MultiMarginLoss
-CLASStorch.nn.MultiMarginLoss(p=1, margin=1.0, weight=None, size_average=None, reduce=None, reduction='mean')
-### 18、TripletMarginLoss
-CLASStorch.nn.TripletMarginLoss(margin=1.0, p=2.0, eps=1e-06, swap=False, size_average=None, reduce=None, reduction='mean')
+
 ## 十六、Vision layers
 ### 1、PixelShuffle
 CLASStorch.nn.PixelShuffle(upscale_factor)
