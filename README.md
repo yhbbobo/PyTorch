@@ -53,28 +53,28 @@
 * [torch.Attributes](notes/api/torch_attributes.md)
 * [torch.autograd](notes/api/torch_autograd.md)
 * [torch.cuda](notes/api/torch_cuda.md)
-torch.distributed
-torch.distributions
-torch.hub
-torch.jit
-torch.nn.init
-torch.onnx
-torch.optim
-Quantization
-torch.random
-torch.sparse
-torch.Storage
-torch.utils.bottleneck
-torch.utils.checkpoint
-torch.utils.cpp_extension
-torch.utils.data
-torch.utils.dlpack
-torch.utils.model_zoo
-torch.utils.tensorboard
-Type Info
-Named Tensors
-Named Tensors operator coverage
-torch.__config__
+* torch.distributed
+* torch.distributions
+* torch.hub
+* torch.jit
+* torch.nn.init
+* torch.onnx
+* [torch.optim](notes/optim/opt.md)
+* Quantization
+* torch.random
+* torch.sparse
+* torch.Storage
+* torch.utils.bottleneck
+* torch.utils.checkpoint
+* torch.utils.cpp_extension
+* torch.utils.data
+* torch.utils.dlpack
+* torch.utils.model_zoo
+* torch.utils.tensorboard
+* Type Info
+* Named Tensors
+* Named Tensors operator coverage
+* torch.__config__
 
 # 参考
 [1] [BenchMark](https://github.com/fusimeng/framework_benchmark)    
