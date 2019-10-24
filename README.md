@@ -53,7 +53,7 @@
 * [torch.Attributes](notes/api/torch_attributes.md)
 * [torch.autograd](notes/api/torch_autograd.md)
 * [torch.cuda](notes/api/torch_cuda.md)
-* torch.distributed
+* [torch.distributed](notes/api/torch_distributed.md)
 * torch.distributions
 * torch.hub
 * torch.jit
