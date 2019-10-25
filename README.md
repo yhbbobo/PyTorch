@@ -51,7 +51,7 @@
 * [torch.nn.functional](notes/api/torch_nn_funtional.md)
 * [torch.Tensor](notes/api/torch_tensor.md)
 * [torch.Attributes](notes/api/torch_attributes.md)
-* [torch.autograd](notes/api/torch_autograd.md)
+* [torch.autograd](notes/api/torch_tensor.md)
 * [torch.cuda](notes/api/torch_cuda.md)
 * [torch.distributed](notes/api/torch_distributed.md)
 * torch.distributions

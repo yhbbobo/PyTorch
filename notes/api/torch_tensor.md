@@ -1,6 +1,5 @@
 # torch.tensor
-## 目录结构
-* DataType（数据类型）
-* torch.Tensor
-    * Funtion
-    * Property
+* [官方API](https://pytorch.org/docs/stable/tensors.html)   
+* [中文API](https://pytorch.apachecn.org/docs/1.2/tensors.html)   
+
+![](../../res/torchAPI/torch.Tensor.png)
