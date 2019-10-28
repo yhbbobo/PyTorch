@@ -25,7 +25,7 @@
 ### 3、BP
 
 ### 4、优化器
-   
+* [torch.optim](notes/optim/opt.md)
 ### 5、模型保存&迁移学习&...
 * 模型保存
     * [模型保存与加载](notes/load_save_model.md)
@@ -54,12 +54,12 @@
 * [torch.autograd](notes/api/torch_tensor.md)
 * [torch.cuda](notes/api/torch_cuda.md)
 * [torch.distributed](notes/api/torch_distributed.md)
-* torch.distributions
-* torch.hub
+* [torch.distributions](notes/api/torch_distributions.md)
+* [torch.hub](notes/api/torch_hub.md)
 * torch.jit
-* torch.nn.init
-* torch.onnx
-* [torch.optim](notes/optim/opt.md)
+* [torch.nn.init](notes/api/torch_nn_init.md)
+* [torch.onnx](notes/api/torch_onnx.md)
+* [torch.optim](notes/api/torch_opt.md)
 * Quantization
 * torch.random
 * torch.sparse
