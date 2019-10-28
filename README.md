@@ -67,7 +67,7 @@
 * torch.utils.bottleneck
 * torch.utils.checkpoint
 * torch.utils.cpp_extension
-* torch.utils.data
+* [torch.utils.data](notes/api/torch_utils_data.md)
 * torch.utils.dlpack
 * torch.utils.model_zoo
 * torch.utils.tensorboard
