@@ -45,6 +45,7 @@
 ### 6、加速运行
 * [自定义 C++ 与 CUDA 拓展](notes/acc/cuda.md)
 * [Pytorch有什么节省内存（显存）的小技巧？](notes/acc/save.md)
+* [GPU 显存不足怎么办？](notes/acc/save_2.md)
 ## 三、源码学习
 [torch包的目录结构](notes/api/torch_arch.md)
 * [torch](notes/api/torch.md)
