@@ -18,8 +18,9 @@
 * [神经网络](notes/nn/nn.md)
 * [自动微分](notes/nn/autograd.md)
 * [训练分类器](notes/nn/training_classifier.md)
-* [模型加载/参数初始化/Finetune](notes/lif.md)
+* [模型加载/参数初始化/Finetune](notes/nn/lif.md)
 * [torch.nn](code/nn_tutorial.ipynb)
+* [torch.nn与torch.nn.Functional区别](notes/nn/qubie.md)
 ### 2、损失函数
 
 ### 3、BP
