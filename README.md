@@ -42,8 +42,8 @@
 * 模型并行&数据并行
     * [官方Demo](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)
 ### 6、加速运行
-* [自定义 C++ 与 CUDA 拓展](notes/cuda.md)
-  
+* [自定义 C++ 与 CUDA 拓展](notes/acc/cuda.md)
+* [Pytorch有什么节省内存（显存）的小技巧？](notes/acc/save.md)
 ## 三、源码学习
 [torch包的目录结构](notes/api/torch_arch.md)
 * [torch](notes/api/torch.md)
