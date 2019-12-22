@@ -38,10 +38,6 @@
 ## 二、[基础&学习笔记](notes/pytorch-api.md)
 [什么是pytorch？](notes/pytorch.md)   
 [备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html)  
-### 0、数据处理
-* [ImageFolder使用](notes/imagefolder.md)   
-* [DataSet使用](code/dataSet.py)
-* [DataLoader使用](code/dataLoader.py)
 
 ### 1、网络模型
 * [torch.nn package](notes/nn/torch_nn.md)
