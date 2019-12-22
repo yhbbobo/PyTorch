@@ -1,12 +1,44 @@
 # pytorch1.3.0学习笔记  
 ![](imgs/dl.png)
+
 ## 一、资源
 [官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  | [d2l](https://github.com/ShusenTang/Dive-into-DL-PyTorch) 
+## 二、源码学习
+[torch包的目录结构](notes/api/torch_arch.md)
+* [torch](notes/api/torch.md)
+* [torch.nn](notes/api/torch_nn.md)
+* [torch.nn.functional](notes/api/torch_nn_funtional.md)
+* [torch.Tensor](notes/api/torch_tensor.md)
+* [torch.Attributes](notes/api/torch_attributes.md)
+* [torch.autograd](notes/api/torch_tensor.md)
+* [torch.cuda](notes/api/torch_cuda.md)
+* [torch.distributed](notes/api/torch_distributed.md)
+* [torch.distributions](notes/api/torch_distributions.md)
+* [torch.hub](notes/api/torch_hub.md)
+* torch.jit
+* [torch.nn.init](notes/api/torch_nn_init.md)
+* [torch.onnx](notes/api/torch_onnx.md)
+* [torch.optim](notes/api/torch_opt.md)
+* Quantization
+* torch.random
+* torch.sparse
+* torch.Storage
+* torch.utils.bottleneck
+* torch.utils.checkpoint
+* torch.utils.cpp_extension
+* [torch.utils.data](notes/api/torch_utils_data.md)
+* torch.utils.dlpack
+* torch.utils.model_zoo
+* [torch.utils.tensorboard](notes/api/torch_utils_tensorboard.md)
+* Type Info
+* Named Tensors
+* Named Tensors operator coverageß
+* torch.__config__
+
 ## 二、[基础&学习笔记](notes/pytorch-api.md)
 [什么是pytorch？](notes/pytorch.md)   
 [备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html)  
 ### 0、数据处理
-* [数据加载和处理教程](notes/data/load_pre.md)
 * [torch.utils.data](notes/data/torch_utils_data.md)
 * [torchvision.datasets](notes/data/torch_torchvision.md)
 * [ImageFolder使用](notes/imagefolder.md)   
@@ -46,37 +78,6 @@
 * [自定义 C++ 与 CUDA 拓展](notes/acc/cuda.md)
 * [Pytorch有什么节省内存（显存）的小技巧？](notes/acc/save.md)
 * [GPU 显存不足怎么办？](notes/acc/save_2.md)
-## 三、源码学习
-[torch包的目录结构](notes/api/torch_arch.md)
-* [torch](notes/api/torch.md)
-* [torch.nn](notes/api/torch_nn.md)
-* [torch.nn.functional](notes/api/torch_nn_funtional.md)
-* [torch.Tensor](notes/api/torch_tensor.md)
-* [torch.Attributes](notes/api/torch_attributes.md)
-* [torch.autograd](notes/api/torch_tensor.md)
-* [torch.cuda](notes/api/torch_cuda.md)
-* [torch.distributed](notes/api/torch_distributed.md)
-* [torch.distributions](notes/api/torch_distributions.md)
-* [torch.hub](notes/api/torch_hub.md)
-* torch.jit
-* [torch.nn.init](notes/api/torch_nn_init.md)
-* [torch.onnx](notes/api/torch_onnx.md)
-* [torch.optim](notes/api/torch_opt.md)
-* Quantization
-* torch.random
-* torch.sparse
-* torch.Storage
-* torch.utils.bottleneck
-* torch.utils.checkpoint
-* torch.utils.cpp_extension
-* [torch.utils.data](notes/api/torch_utils_data.md)
-* torch.utils.dlpack
-* torch.utils.model_zoo
-* torch.utils.tensorboard
-* Type Info
-* Named Tensors
-* Named Tensors operator coverage
-* torch.__config__
 
 # 参考
 [1] [BenchMark](https://github.com/fusimeng/framework_benchmark)    

@@ -20,6 +20,7 @@
  
 ## 3.face数据集
 将face.zip解压，然后按照上述目录放置。  
+链接:https://pan.baidu.com/s/1aoiLnfn6YhPKgN1Xj7p43w  密码:0yg1
 ## 4.hymenoptera数据集
 将hymenoptera.zip解压，然后按照上述目录放置。  
 
