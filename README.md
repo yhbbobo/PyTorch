@@ -39,8 +39,6 @@
 [什么是pytorch？](notes/pytorch.md)   
 [备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html)  
 ### 0、数据处理
-* [torch.utils.data](notes/data/torch_utils_data.md)
-* [torchvision.datasets](notes/data/torch_torchvision.md)
 * [ImageFolder使用](notes/imagefolder.md)   
 * [DataSet使用](code/dataSet.py)
 * [DataLoader使用](code/dataLoader.py)
