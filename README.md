@@ -2,8 +2,11 @@
 ![](imgs/dl.png)
 
 ## 一、资源
-[官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  | [d2l](https://github.com/ShusenTang/Dive-into-DL-PyTorch)|[什么是pytorch？](notes/pytorch.md)|[备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html)  
+[官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  | [d2l](https://github.com/ShusenTang/Dive-into-DL-PyTorch)|[什么是pytorch？](notes/pytorch.md)|[备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html) 
+
+[学习步骤](notes/pytorch-api.md)
 ## 二、源码学习
+
 [torch包的目录结构](notes/api/torch_arch.md)
 * [torch](notes/api/torch.md)   
 * [torch.nn](notes/api/torch_nn.md)
@@ -34,9 +37,7 @@
 * Named Tensors
 * Named Tensors operator coverageß
 * torch.__config__
-
-## 二、[基础&学习笔记](notes/pytorch-api.md)
-
+## 二、基础&学习笔记
 
 ### 1、网络模型
 * [torch.nn package](notes/nn/torch_nn.md)
