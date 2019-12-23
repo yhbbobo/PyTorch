@@ -24,4 +24,4 @@
 ## 4.hymenoptera数据集
 将hymenoptera.zip解压，然后按照上述目录放置。  
 ## 5.Fashion_MNIST数据集
-
+链接:https://pan.baidu.com/s/1CeAu0r-h3YwFBwrB7Go2Jw  密码:oylb
