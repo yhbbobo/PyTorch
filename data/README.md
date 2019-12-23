@@ -10,8 +10,8 @@
 --processed
 --face # 人脸数据集
 --hymenoptera # 蜜蜂数据集
+--Fashion_MNIST #fashion_mnist数据集
 ```
-网盘地址：https://www.icloud.com/#iclouddrive   
 
 ## 1.cifar10数据集
 将cifar10解压，然后按照上述目录放置。  
@@ -23,4 +23,5 @@
 链接:https://pan.baidu.com/s/1aoiLnfn6YhPKgN1Xj7p43w  密码:0yg1
 ## 4.hymenoptera数据集
 将hymenoptera.zip解压，然后按照上述目录放置。  
+## 5.Fashion_MNIST数据集
 
