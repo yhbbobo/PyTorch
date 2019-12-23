@@ -4,13 +4,12 @@
 ## 一、资源
 [官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  | [d2l](https://github.com/ShusenTang/Dive-into-DL-PyTorch) 
 ## 二、源码学习
-[torch包的目录结构](notes/api/torch_arch.md)
-* [torch](notes/api/torch.md)
-* [torch.nn](notes/api/torch_nn.md)
-* [torch.nn.functional](notes/api/torch_nn_funtional.md)
-* [torch.Tensor](notes/api/torch_tensor.md)
-* [torch.Attributes](notes/api/torch_attributes.md)
-* [torch.autograd](notes/api/torch_tensor.md)
+[torch包的目录结构](notes/api/torch_arch.md)   
+|包1|包2| 包3|
+|:--|:--|:--|
+|[torch](notes/api/torch.md)|[torch.nn](notes/api/torch_nn.md)| [torch.nn.functional](notes/api/torch_nn_funtional.md)|
+|[torch.Tensor](notes/api/torch_tensor.md)|[torch.Attributes](notes/api/torch_attributes.md)|[torch.autograd](notes/api/torch_tensor.md)|
+
 * [torch.cuda](notes/api/torch_cuda.md)
 * [torch.distributed](notes/api/torch_distributed.md)
 * [torch.distributions](notes/api/torch_distributions.md)
