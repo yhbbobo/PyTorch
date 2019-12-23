@@ -4,10 +4,8 @@
 ## 一、资源
 [官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  | [d2l](https://github.com/ShusenTang/Dive-into-DL-PyTorch)|[什么是pytorch？](notes/pytorch.md)|[备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html) 
 
-[学习步骤](notes/pytorch-api.md)：数据读取-->网络构建-->损失函数-->BP算法-->优化函数-->GPU加速（节省GPU、C++加速、多GPU训练等）   
-
+[学习步骤](notes/api/pytorch-api.md)：数据读取-->网络构建-->损失函数-->BP算法-->优化函数-->GPU加速（节省GPU、C++加速、多GPU训练等）   
 ## 二、源码学习
-
 [torch包的目录结构](notes/api/torch_arch.md)
 * [torch](notes/api/torch.md)   
 * [torch.nn](notes/api/torch_nn.md)
@@ -56,24 +54,25 @@
 * [torch.optim](notes/optim/opt.md)
 ### 5、模型保存&迁移学习&...
 * 模型保存
-    * [模型保存与加载](notes/load_save_model.md)
+    * [模型保存与加载](notes/others/load_save_model.md)
 * 迁移学习
     * [迁移学习](code/transferlearning.ipynb)
+* Tensorboard
+    *[实例-1](notes/others/tensorboard01.md)
 ### 6、分布式
-[分布式训练原理](notes/distributed.md)    
-[torch.distributed](notes/torch-distributed.md)
+[分布式训练原理](notes/dist/distributed.md)    
+[torch.distributed](notes/dist/torch-distributed.md)
 * 模型并行
     * [官方demo](https://pytorch.org/tutorials/intermediate/model_parallel_tutorial.html)
 * 数据并行
-    * [Pytorch单机多卡和多机多卡分布式](notes/multigpus.md)
-    * [Data Parallelism](notes/dataparallelism.md) 
+    * [Pytorch单机多卡和多机多卡分布式](notes/dist/multigpus.md)
+    * [Data Parallelism](notes/dist/dataparallelism.md) 
 * 模型并行&数据并行
     * [官方Demo](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)
-### 6、加速运行
+### 7、加速运行
 * [自定义 C++ 与 CUDA 拓展](notes/acc/cuda.md)
 * [Pytorch有什么节省内存（显存）的小技巧？](notes/acc/save.md)
 * [GPU 显存不足怎么办？](notes/acc/save_2.md)
-
 # 参考
 [1] [BenchMark](https://github.com/fusimeng/framework_benchmark)    
 [2]  https://blog.csdn.net/rogerfang/article/details/82291464   
