@@ -4,7 +4,8 @@
 ## 一、资源
 [官网](https://pytorch.org/) | [GitHub](https://github.com/pytorch/pytorch) | [Examples](https://github.com/pytorch/examples)  | [Tutorials](https://github.com/pytorch/tutorials) | [API](https://pytorch-cn.readthedocs.io/zh/latest/#pytorch)  | [apachecn](https://github.com/apachecn/pytorch-doc-zh)  | [tnt](https://github.com/pytorch/tnt)  | [d2l](https://github.com/ShusenTang/Dive-into-DL-PyTorch)|[什么是pytorch？](notes/pytorch.md)|[备忘录](https://pytorch.org/tutorials/beginner/ptcheat.html) 
 
-[学习步骤](notes/pytorch-api.md)
+[学习步骤](notes/pytorch-api.md)：数据读取-->网络构建-->损失函数-->BP算法-->优化函数   
+
 ## 二、源码学习
 
 [torch包的目录结构](notes/api/torch_arch.md)
