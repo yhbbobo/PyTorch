@@ -6,7 +6,24 @@
 
 [学习步骤](notes/api/pytorch-api.md)：数据读取-->网络构建-->损失函数-->BP算法-->优化函数-->GPU加速（节省GPU、C++加速、多GPU训练等）   
 ## 二、源码学习
-[torch包的目录结构](notes/api/torch_arch.md)
+### Notes
+* Autograd mechanics
+* Broadcasting semantics
+* CPU threading and TorchScript inference
+* CUDA semantics
+* Extending PyTorch
+* Frequently Asked Questions
+* Features for large-scale deployments
+* Multiprocessing best practices
+* Reproducibility
+* Serialization semantics
+* Windows FAQ
+* PyTorch on XLA Devices
+### Community
+* PyTorch Contribution Guide
+* PyTorch Governance
+* PyTorch Governance | Persons of Interest
+### [Python API](notes/api/torch_arch.md)
 * [torch](notes/api/torch.md)   
 * [torch.nn](notes/api/torch_nn.md)
 * [torch.nn.functional](notes/api/torch_nn_funtional.md)
