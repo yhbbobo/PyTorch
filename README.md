@@ -57,8 +57,8 @@
     * [模型保存与加载](notes/others/load_save_model.md)
 * 迁移学习
     * [迁移学习](code/transferlearning.ipynb)
-* Tensorboard
-    *[实例-1](notes/others/tensorboard01.md)
+* [Tensorboard](notes/api/torch_utils_tensorboard.md)
+    
 ### 6、分布式
 [分布式训练原理](notes/dist/distributed.md)    
 [torch.distributed](notes/dist/torch-distributed.md)
