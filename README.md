@@ -60,8 +60,7 @@
 * [Tensorboard](notes/api/torch_utils_tensorboard.md)
     
 ### 6、分布式
-[分布式训练原理](notes/dist/distributed.md)    
-[torch.distributed](notes/dist/torch-distributed.md)
+[分布式训练原理](notes/dist/distributed.md)|[torch.distributed](notes/dist/torch-distributed.md)
 * 模型并行
     * [官方demo](https://pytorch.org/tutorials/intermediate/model_parallel_tutorial.html)
 * 数据并行
