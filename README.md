@@ -14,7 +14,7 @@
 * Extending PyTorch
 * Frequently Asked Questions
 * Features for large-scale deployments
-* Multiprocessing best practices
+* [Multiprocessing best practices](notes/notes/multiprocessing.md)
 * Reproducibility
 * Serialization semantics
 * Windows FAQ
