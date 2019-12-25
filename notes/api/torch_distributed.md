@@ -5,6 +5,13 @@
 
 ![](../../res/torchAPI/torch.distributed.png)
 
+多GPU训练有3种方式：   
+* torch.multiprocessing
+* torch.distributed
+    * torch.nn.parallel.DistributedDataParallel()
+* torch.nn.DataParallel()
+
+
 ## SMMG
 ```python
 import torch
