@@ -72,8 +72,8 @@
 * 迁移学习
     * [迁移学习](code/transferlearning.ipynb)
 * [Tensorboard](notes/api/torch_utils_tensorboard.md)  
-### 6、分布式
-
+### 6、[分布式](notes/api/torch_distributed.md)
+* [random.seed](notes/others/seed.md)
 ### 7、加速运行
 * [自定义 C++ 与 CUDA 拓展](notes/acc/cuda.md)
 * [Pytorch有什么节省内存（显存）的小技巧？](notes/acc/save.md)
