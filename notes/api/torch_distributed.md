@@ -14,7 +14,9 @@
     * [Data Parallelism](../../notes/dist/dataparallelism.md) 
 * 模型并行&数据并行
     * [官方Demo](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)
-多GPU训练有3种方式：   
+
+
+### 多GPU训练有3种方式：   
 * torch.multiprocessing
 * torch.distributed
     * torch.nn.parallel.DistributedDataParallel()
