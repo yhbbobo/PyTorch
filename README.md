@@ -55,7 +55,6 @@
 * torch.__config__
 ## 三、基础&学习笔记
 ### 0、数据读取
-
 ### 1、网络模型
 * [神经网络](notes/nn/nn.md)
 * [自动微分](notes/nn/autograd.md)
@@ -64,9 +63,7 @@
 * [torch.nn](code/nn_tutorial.ipynb)
 * [torch.nn与torch.nn.Functional区别](notes/nn/qubie.md)
 ### 2、损失函数
-
 ### 3、BP
-
 ### 4、优化器
 * [torch.optim](notes/optim/opt.md)
 ### 5、模型保存&迁移学习&...
@@ -74,17 +71,9 @@
     * [模型保存与加载](notes/others/load_save_model.md)
 * 迁移学习
     * [迁移学习](code/transferlearning.ipynb)
-* [Tensorboard](notes/api/torch_utils_tensorboard.md)
-    
+* [Tensorboard](notes/api/torch_utils_tensorboard.md)  
 ### 6、分布式
-[分布式训练原理](notes/dist/distributed.md)|[torch.distributed](notes/dist/torch-distributed.md)
-* 模型并行
-    * [官方demo](https://pytorch.org/tutorials/intermediate/model_parallel_tutorial.html)
-* 数据并行
-    * [Pytorch单机多卡和多机多卡分布式](notes/dist/multigpus.md)
-    * [Data Parallelism](notes/dist/dataparallelism.md) 
-* 模型并行&数据并行
-    * [官方Demo](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)
+
 ### 7、加速运行
 * [自定义 C++ 与 CUDA 拓展](notes/acc/cuda.md)
 * [Pytorch有什么节省内存（显存）的小技巧？](notes/acc/save.md)

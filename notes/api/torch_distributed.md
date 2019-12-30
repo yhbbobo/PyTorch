@@ -5,6 +5,15 @@
 
 ![](../../res/torchAPI/torch.distributed.png)
 
+## 一、原理基础
+[分布式训练原理](../../notes/dist/distributed.md)|[torch.distributed](../../notes/dist/torch-distributed.md)
+* 模型并行
+    * [官方demo](https://pytorch.org/tutorials/intermediate/model_parallel_tutorial.html)
+* 数据并行
+    * [Pytorch单机多卡和多机多卡分布式](../../notes/dist/multigpus.md)
+    * [Data Parallelism](../../notes/dist/dataparallelism.md) 
+* 模型并行&数据并行
+    * [官方Demo](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)
 多GPU训练有3种方式：   
 * torch.multiprocessing
 * torch.distributed
